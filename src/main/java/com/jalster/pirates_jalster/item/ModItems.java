@@ -1,6 +1,8 @@
 package com.jalster.pirates_jalster.item;
 
 import com.jalster.pirates_jalster.PiratesJalster;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,7 +16,7 @@ public class ModItems {
 
     //ITEMS LIST
     public static final RegistryObject<Item> StrawHat = ITEMS.register("strawhat",
-            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+            () -> new ArmorItem(ModArmorMaterials.MUGIWARA, EquipmentSlot.HEAD,new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
