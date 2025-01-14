@@ -1,4 +1,4 @@
-package com.jalster.pirates_jalster.items;
+package com.jalster.pirates_jalster.item;
 
 import com.jalster.pirates_jalster.PiratesJalster;
 import net.minecraft.world.item.CreativeModeTab;
@@ -12,7 +12,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, PiratesJalster.MOD_ID);
 
-
+    //ITEMS LIST
     public static final RegistryObject<Item> StrawHat = ITEMS.register("strawhat",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 

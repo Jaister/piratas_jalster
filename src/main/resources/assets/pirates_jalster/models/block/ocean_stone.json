@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "pirates_jalster:block/ocean_stone"
+  }
+}
