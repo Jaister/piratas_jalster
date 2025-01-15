@@ -1,6 +1,7 @@
 package com.jalster.pirates_jalster.item;
 
 import com.jalster.pirates_jalster.PiratesJalster;
+import com.jalster.pirates_jalster.item.custom.EnergySteroidItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,7 +20,8 @@ public class ModItems {
             () -> new ModArmorItem(ModArmorMaterials.MUGIWARA, EquipmentSlot.HEAD,new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
     public static final RegistryObject<Item> OceanShard = ITEMS.register("ocean_shard",
             () -> new Item( new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
-
+    public static final RegistryObject<Item> EnergySteroid = ITEMS.register("energy_steroid",
+            () -> new EnergySteroidItem( new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }
