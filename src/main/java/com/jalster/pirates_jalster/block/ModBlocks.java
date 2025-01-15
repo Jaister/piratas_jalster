@@ -1,6 +1,7 @@
 package com.jalster.pirates_jalster.block;
 
 import com.jalster.pirates_jalster.PiratesJalster;
+import com.jalster.pirates_jalster.block.custom.OceanStoneBlock;
 import com.jalster.pirates_jalster.item.ModCreativeTab;
 import com.jalster.pirates_jalster.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -21,7 +22,7 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, PiratesJalster.MOD_ID);
     //BLOCKS LIST
     public static final RegistryObject<Block> OceanStone = registerBlock("ocean_stone",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops()),
+            () -> new OceanStoneBlock(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops()),
             ModCreativeTab.PIRATES_TAB);
 
     private static <T extends  Block>RegistryObject<T>registerBlock(String name, Supplier<T> block, CreativeModeTab tab){

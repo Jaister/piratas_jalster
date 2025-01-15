@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "pirates_jalster", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEventHandler {
-
+    //EVENTO PARA EL STRAWHAT
     @SubscribeEvent
     public static void onArmorEquipped(LivingEquipmentChangeEvent event) {
         if (event.getEntity() instanceof Player player) {
@@ -21,7 +21,8 @@ public class ModEventHandler {
 
             // Check if the new armor is your custom item
             if (newArmor.getItem() == ModItems.StrawHat.get()) {
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, Integer.MAX_VALUE, 0, false, false));
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, Integer.MAX_VALUE, 2, false, false));
+                player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Integer.MAX_VALUE, 2, false, false));
             }
 
             // Remove effect when unequipping
