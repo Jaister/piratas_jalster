@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    "RRR",
+    "WWW"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:red_wool"
+    },
+    "W": {
+      "item": "minecraft:hay_block"
+    }
+  },
+  "result": {
+    "item": "pirates_jalster:strawhat"
+  }
+}

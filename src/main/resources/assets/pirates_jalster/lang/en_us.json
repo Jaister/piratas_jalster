@@ -1,4 +1,8 @@
 {
   "item.pirates_jalster.strawhat" : "StrawHat",
-  "block.pirates_jalster.ocean_stone": "Ocean Stone"
+  "item.pirates_jalster.ocean_shard" : "Ocean Shard",
+
+  "block.pirates_jalster.ocean_stone": "Ocean Stone",
+
+  "itemGroup.piratestab" : "Jalster MOD"
 }

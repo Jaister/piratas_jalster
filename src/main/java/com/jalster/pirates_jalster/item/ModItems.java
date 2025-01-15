@@ -16,7 +16,9 @@ public class ModItems {
 
     //ITEMS LIST
     public static final RegistryObject<Item> StrawHat = ITEMS.register("strawhat",
-            () -> new ArmorItem(ModArmorMaterials.MUGIWARA, EquipmentSlot.HEAD,new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+            () -> new ModArmorItem(ModArmorMaterials.MUGIWARA, EquipmentSlot.HEAD,new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
+    public static final RegistryObject<Item> OceanShard = ITEMS.register("ocean_shard",
+            () -> new Item( new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
