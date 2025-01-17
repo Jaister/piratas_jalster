@@ -5,5 +5,7 @@
 
   "block.pirates_jalster.ocean_stone": "Ocean Stone",
 
-  "itemGroup.piratestab" : "Jalster MOD"
+  "itemGroup.piratestab" : "Jalster MOD",
+  "tooltip.pirates_jalster.strawhat.noshift" : "Press §eSHIFT§r to get more info",
+  "tooltip.pirates_jalster.strawhat.shift" : "The §eone§r and §eonly§r §6STRAWHAT§r equip it to obtain the power of the King of Pirates"
 }
