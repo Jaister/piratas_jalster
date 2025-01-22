@@ -10,6 +10,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
+
 
 import static com.jalster.pirates_jalster.PiratesJalster.MOD_ID;
 
@@ -31,7 +33,7 @@ public class PiratesJalster
         ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::setup);
-
+        GeckoLib.initialize();
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }

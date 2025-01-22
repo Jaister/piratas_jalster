@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "item/generated",
 	"texture_size": [32, 32],
 	"textures": {
 		"layer0": "pirates_jalster:item/strawhat"

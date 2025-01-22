@@ -3,8 +3,10 @@ package com.jalster.pirates_jalster.item;
 import com.jalster.pirates_jalster.PiratesJalster;
 import com.jalster.pirates_jalster.item.custom.EnergySteroidItem;
 import com.jalster.pirates_jalster.item.custom.LuffyArmorItem;
+import com.jalster.pirates_jalster.item.custom.ZoroSwordItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,6 +23,9 @@ public class ModItems {
             () -> new Item( new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
     public static final RegistryObject<Item> EnergySteroid = ITEMS.register("energy_steroid",
             () -> new EnergySteroidItem( new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
+
+    public static final RegistryObject<Item> ZoroSword = ITEMS.register("zoro_sword",
+            () -> new ZoroSwordItem(ModTiers.Mugiwara, 3, 2.4F, new Item.Properties().tab(ModCreativeTab.PIRATES_TAB)));
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

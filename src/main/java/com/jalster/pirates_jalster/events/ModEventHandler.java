@@ -1,14 +1,19 @@
 package com.jalster.pirates_jalster.events;
 
+import com.jalster.pirates_jalster.entity.client.armor.StrawhatArmorRenderer;
 import com.jalster.pirates_jalster.item.ModItems;
+import com.jalster.pirates_jalster.item.custom.LuffyArmorItem;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 @Mod.EventBusSubscriber(modid = "pirates_jalster", bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEventHandler {
