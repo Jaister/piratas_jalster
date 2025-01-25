@@ -1,17 +1,24 @@
 package com.jalster.pirates_jalster.block.custom;
 
+import com.jalster.pirates_jalster.item.util.ModTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.server.level.ServerPlayer;
 
+
+import java.util.Optional;
 
 public class OceanStoneBlock extends Block {
     public OceanStoneBlock(Properties properties) {
@@ -24,7 +31,7 @@ public class OceanStoneBlock extends Block {
             // Deal 7 hearts (14 damage) of magic damage to the player
             Iterable<ItemStack> armor = player.getArmorSlots();
             for (ItemStack itemStack : armor) {
-                if (!itemStack.isEmpty()) { // Check if the armor slot is not empty
+                if (!itemStack.isEmpty() && ModTags.isPowerupArmor(itemStack)) { // Check if the armor slot is not empty
                     // Use a custom tag to track if effects have been applied
                     if (!player.getPersistentData().getBoolean("effectsApplied")) {
                         player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 360, 3));

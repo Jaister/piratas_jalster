@@ -23,7 +23,7 @@ public class ZoroSwordItem extends SwordItem {
         ItemStack itemStack = player.getItemInHand(hand);
 
         if (!level.isClientSide) {
-            // Spawn particles
+            // Spawn sword slash particles (sweep effect)
             for (int i = 0; i < 20; i++) {
                 Vec3 offset = new Vec3(
                         (level.random.nextDouble() - 0.5) * 2,
@@ -39,20 +39,64 @@ public class ZoroSwordItem extends SwordItem {
                 );
             }
 
-            // Spawn the custom Wither Skull
-            WitherSkull skull = new WitherSkull(level, player, 0, 0, 0);
             Vec3 look = player.getLookAngle();
-            skull.setDeltaMovement(look.scale(1.5));
-            skull.setPos(player.getX(), player.getEyeY(), player.getZ());
-            ((ServerLevel) level).addFreshEntity(skull);
-            // Play sound
-            player.playSound(SoundEvents.WITHER_SHOOT, 1.0F, 1.0F);
+
+            // Spawn multiple slashes to resemble Zoro's techniques
+            for (int i = -1; i <= 1; i++) {
+                double angleOffset = i * 0.3; // Offset for multi-directional slashes
+                Vec3 adjustedLook = new Vec3(
+                        look.x * Math.cos(angleOffset) - look.z * Math.sin(angleOffset),
+                        look.y,
+                        look.x * Math.sin(angleOffset) + look.z * Math.cos(angleOffset)
+                ).normalize();
+
+                // Custom Slash Entity or small Fireball
+                net.minecraft.world.entity.projectile.SmallFireball slash = new net.minecraft.world.entity.projectile.SmallFireball(
+                        level,
+                        player,
+                        adjustedLook.x,
+                        adjustedLook.y,
+                        adjustedLook.z
+                );
+                slash.setDeltaMovement(adjustedLook.scale(1.5));
+                slash.setPos(player.getX(), player.getEyeY(), player.getZ());
+                ((ServerLevel) level).addFreshEntity(slash);
+            }
+
+            // Delay for a larger attack
+            level.getServer().execute(() -> {
+                net.minecraft.world.entity.projectile.LargeFireball fireball = new net.minecraft.world.entity.projectile.LargeFireball(
+                        level,
+                        player,
+                        look.x,
+                        look.y,
+                        look.z,
+                        3
+                );
+                fireball.setDeltaMovement(look.scale(2.0));
+                fireball.setPos(player.getX() + look.x * 3, player.getEyeY() + look.y * 3, player.getZ() + look.z * 3);
+                ((ServerLevel) level).addFreshEntity(fireball);
+            });
+
+            // Play sword slash sound
+            level.playSound(
+                    null, // Null means all players near the position can hear it
+                    player.getX(),
+                    player.getY(),
+                    player.getZ(),
+                    SoundEvents.PLAYER_ATTACK_SWEEP, // Sound event
+                    net.minecraft.sounds.SoundSource.PLAYERS, // Sound category
+                    1.0F, // Volume
+                    1.0F // Pitch
+            );
 
             // Cooldown
             player.getCooldowns().addCooldown(this, 80);
         }
 
+
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide);
     }
+
 
 }
